@@ -1,7 +1,7 @@
-import { graphql, StaticQuery } from 'gatsby'
-import * as React from 'react'
+import { graphql, StaticQuery } from 'gatsby';
+import * as React from 'react';
 
-import Header from './header'
+import Header from './header';
 
 const Layout: React.SFC = ({ children }) => (
   <StaticQuery
@@ -22,7 +22,7 @@ const Layout: React.SFC = ({ children }) => (
             margin: '0 auto',
             maxWidth: '40rem',
             padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
+            paddingTop: 0
           }}
         >
           {children}

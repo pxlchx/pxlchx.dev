@@ -1,6 +1,6 @@
-import { graphql, StaticQuery } from 'gatsby'
-import * as React from 'react'
-import Helmet from 'react-helmet'
+import { graphql, StaticQuery } from 'gatsby';
+import * as React from 'react';
+import Helmet from 'react-helmet';
 
 interface SEOProps {
   description?: string
@@ -15,72 +15,72 @@ const SEO: React.SFC<SEOProps> = ({
   lang,
   meta,
   keywords,
-  title,
+  title
 }): JSX.Element => (
-  <StaticQuery
-    query={detailsQuery}
-    render={data => {
-      const metaDescription = description || data.site.siteMetadata.description
-      return (
-        <Helmet
-          htmlAttributes={{
-            lang,
-          }}
-          title={title}
-          titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-          meta={[
-            {
-              content: metaDescription,
-              name: 'description',
-            },
-            {
-              content: title,
-              property: 'og:title',
-            },
-            {
-              content: metaDescription,
-              property: 'og:description',
-            },
-            {
-              content: 'website',
-              property: 'og:type',
-            },
-            {
-              content: 'summary',
-              name: 'twitter:card',
-            },
-            {
-              content: data.site.siteMetadata.author,
-              name: 'twitter:creator',
-            },
-            {
-              content: title,
-              name: 'twitter:title',
-            },
-            {
-              content: metaDescription,
-              name: 'twitter:description',
-            },
-          ]
-            .concat(
-              keywords.length > 0
-                ? {
+    <StaticQuery
+      query={detailsQuery}
+      render={data => {
+        const metaDescription = description || data.site.siteMetadata.description
+        return (
+          <Helmet
+            htmlAttributes={{
+              lang
+            }}
+            title={title}
+            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+            meta={[
+              {
+                content: metaDescription,
+                name: 'description'
+              },
+              {
+                content: title,
+                property: 'og:title'
+              },
+              {
+                content: metaDescription,
+                property: 'og:description'
+              },
+              {
+                content: 'website',
+                property: 'og:type'
+              },
+              {
+                content: 'summary',
+                name: 'twitter:card'
+              },
+              {
+                content: data.site.siteMetadata.author,
+                name: 'twitter:creator'
+              },
+              {
+                content: title,
+                name: 'twitter:title'
+              },
+              {
+                content: metaDescription,
+                name: 'twitter:description'
+              }
+            ]
+              .concat(
+                keywords.length > 0
+                  ? {
                     content: keywords.join(', '),
-                    name: 'keywords',
+                    name: 'keywords'
                   }
-                : []
-            )
-            .concat(meta)}
-        />
-      )
-    }}
-  />
-)
+                  : []
+              )
+              .concat(meta)}
+          />
+        )
+      }}
+    />
+  )
 
 SEO.defaultProps = {
   keywords: [],
   lang: 'en',
-  meta: [],
+  meta: []
 }
 
 export default SEO
